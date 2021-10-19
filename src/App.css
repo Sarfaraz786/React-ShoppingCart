@@ -1,0 +1,18 @@
+.app {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+.filter-select {
+  width: 100%;
+  padding: .67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem;
+  transition: box-shadow .1s ease,border-color .1s ease;
+  box-shadow: none;
+  outline: none;
+}
