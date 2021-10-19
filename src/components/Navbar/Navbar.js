@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 
 const Navbar = ({ products=[] }) => {
 
-  var sum = 0;
-  for (var i=0; i<products.length; i++) {
+  let sum = 0;
+  for (let i=0; i<products.length; i++) {
     if(products[i].qty) {
       sum += products[i].qty;
     }

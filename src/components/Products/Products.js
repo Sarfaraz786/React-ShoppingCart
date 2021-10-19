@@ -23,11 +23,10 @@ class Products extends React.Component {
     fetch('https://muigrocery.free.beeceptor.com/groceries')
     .then(response => response.json())
     .then(json => {
-      console.log('Products', json)
-      var products = json.products.map(function(el) {
-        var o = Object.assign({}, el);
-        o.qty = 0;
-        return o;
+      let products = json.products.map(function(el) {
+        let ob = Object.assign({}, el);
+        ob.qty = 0;
+        return ob;
       })
       this.props.fetchProduct(products)
     })
@@ -38,7 +37,7 @@ class Products extends React.Component {
     this.setState({ search: searchValue });
   }
   filtrTableRow(e) {
-    var selectedVal = e.target.value;
+    let selectedVal = e.target.value;
     this.setState({ selectedCategory: selectedVal });
   };
    
@@ -56,7 +55,7 @@ class Products extends React.Component {
     // table filter by dropdown
     const categoryName = this.props.products.map(item => item.type);
     this.state.categoryOptions = categoryName.filter((c,index) => categoryName.indexOf(c) === index);
-
+    
   return (
     <>
     <Grid>

@@ -21,7 +21,6 @@ const Cart = ({ cart }) => {
     setTotalPrice(price);
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
   
-  console.log('Cart page', cart)
   return (
     <Grid>
       <Grid.Row>
