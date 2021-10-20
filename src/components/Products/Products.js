@@ -21,7 +21,12 @@ class Products extends React.Component {
 
   componentDidMount() {
     fetch('https://muigrocery.free.beeceptor.com/groceries')
-    .then(response => response.json())
+    .then(response => {
+      if(!response.ok) {
+        throw Error('Could not fetch the data for that resource')
+      }
+      return response.json()
+    })
     .then(json => {
       let products = json.products.map(function(el) {
         let ob = Object.assign({}, el);
@@ -29,6 +34,9 @@ class Products extends React.Component {
         return ob;
       })
       this.props.fetchProduct(products)
+    })
+    .catch(error => {
+      console.warn('Something went wrong.', error)
     })
   }
 
