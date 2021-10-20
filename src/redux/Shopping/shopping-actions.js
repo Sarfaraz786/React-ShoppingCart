@@ -10,9 +10,6 @@ export const addToCart = (itemID) => {
 };
 
 export const removeToCart = (itemID, qty) => {
-  // if(qty < 1 ) {
-  //   return
-  // }
   if(qty === 1) {
    return removeFromCart(itemID) 
   }

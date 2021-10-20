@@ -42,17 +42,16 @@ class Products extends React.Component {
   };
    
    render() {
-     // Filter the table data
+     // Table filter by Search
     let sProducts = this.props.products || [],
     searchString = this.state.search.trim().toLowerCase();
     if(this.state.selectedCategory) {
       sProducts = sProducts.filter((e) => e.type.toLowerCase().match(this.state.selectedCategory));
     }
     if (searchString.length > 0) {
-      // We are searching. Filter the results.
       sProducts = sProducts.filter((e) => e.name.toLowerCase().match(searchString));
     }
-    // table filter by dropdown
+    // Table filter by dropdown
     const categoryName = this.props.products.map(item => item.type);
     this.state.categoryOptions = categoryName.filter((c,index) => categoryName.indexOf(c) === index);
     
@@ -66,12 +65,6 @@ class Products extends React.Component {
         <div className="ui icon input" style={{width: "100%"}}>
           <select className="filter-select" onChange={(e) => this.filtrTableRow(e)} style={{textTransform:"capitalize"}}>
             <option kay='selectAll' value="">Select category</option>
-            {/* <option kay='dairy' value="dairy">Dairy</option>
-            <option kay='fruit' value="fruit">Fruit</option>
-            <option kay='vegetable' value="vegetable">Vegetable</option>
-            <option kay='bakery' value="bakery">Bakery</option>
-            <option kay='vegan' value="vegan">Vegan</option>
-            <option kay='meat' value="meat">Meat</option> */}
             {this.state.categoryOptions.map((item) => {
               return <option key={item} value={item} style={{textTransform:"capitalize"}}>{item}</option>;
             })}
